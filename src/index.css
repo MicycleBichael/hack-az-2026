@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 221 72% 16%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 221 72% 16%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 221 72% 16%;
+
+    --primary: 220 72% 17%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 214 32% 91%;
+    --secondary-foreground: 221 72% 16%;
+
+    --muted: 214 32% 93%;
+    --muted-foreground: 218 19% 42%;
+
+    --accent: 207 79% 51%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 349 94% 35%;
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 210 40% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 221 72% 16%;
+
+    --border: 214 32% 88%;
+    --input: 214 32% 88%;
+    --ring: 207 79% 51%;
+
+    --radius: 0.75rem;
+    --hero: linear-gradient(135deg, hsl(220 72% 17%), hsl(349 94% 35%));
+    --shadow-soft: 0 12px 32px -18px hsl(220 72% 17% / 0.28);
+    --shadow-strong: 0 22px 48px -24px hsl(220 72% 17% / 0.4);
+    --shadow-glow: 0 16px 38px -20px hsl(207 79% 51% / 0.75);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 220 72% 17%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 214 32% 93%;
+    --sidebar-accent-foreground: 220 72% 17%;
+    --sidebar-border: 214 32% 88%;
+    --sidebar-ring: 207 79% 51%;
+  }
+
+  .dark {
+    --background: 220 72% 10%;
+    --foreground: 210 40% 98%;
+    --card: 220 55% 14%;
+    --card-foreground: 210 40% 98%;
+    --popover: 220 55% 14%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 207 79% 58%;
+    --primary-foreground: 220 72% 10%;
+    --secondary: 220 35% 20%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 220 35% 20%;
+    --muted-foreground: 215 20% 72%;
+    --accent: 207 79% 58%;
+    --accent-foreground: 220 72% 10%;
+    --destructive: 349 80% 52%;
+    --destructive-foreground: 210 40% 98%;
+    --success: 142 71% 45%;
+    --success-foreground: 210 40% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 220 72% 10%;
+    --border: 220 35% 24%;
+    --input: 220 35% 24%;
+    --ring: 207 79% 58%;
+    --sidebar-background: 220 72% 10%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 207 79% 58%;
+    --sidebar-primary-foreground: 220 72% 10%;
+    --sidebar-accent: 220 35% 20%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 220 35% 24%;
+    --sidebar-ring: 207 79% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-image:
+      linear-gradient(hsl(var(--primary) / 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.035) 1px, transparent 1px),
+      radial-gradient(circle at 12% 8%, hsl(var(--accent) / 0.08), transparent 28%),
+      radial-gradient(circle at 88% 12%, hsl(var(--destructive) / 0.06), transparent 24%);
+    background-size: 28px 28px, 28px 28px, 100% 100%, 100% 100%;
+  }
+}
+
+@layer components {
+  .notebook-panel {
+    @apply border border-border/80 bg-card/95 shadow-soft;
+    background-image: linear-gradient(90deg, hsl(var(--primary) / 0.055) 1px, transparent 1px);
+    background-size: 18px 100%;
+  }
+
+  .briefing-panel {
+    @apply relative overflow-hidden border border-primary/20 bg-card text-card-foreground shadow-strong;
+    background-image:
+      linear-gradient(135deg, hsl(var(--primary) / 0.10), transparent 38%),
+      repeating-linear-gradient(0deg, transparent 0 23px, hsl(var(--primary) / 0.045) 24px);
+  }
+
+  .micro-label {
+    @apply text-[10px] font-black uppercase tracking-[0.18em] text-muted-foreground;
+  }
+
+  .stamp-label {
+    @apply inline-flex items-center border border-primary/30 bg-primary/5 px-2 py-1 text-[10px] font-black uppercase tracking-[0.16em] text-primary;
+  }
+
+  .priority-rail {
+    @apply relative overflow-hidden border border-border/80 bg-card;
+    background-image: none;
+  }
+
+  .priority-rail::before {
+    content: "";
+    @apply absolute inset-y-0 left-0 w-1 bg-destructive;
+  }
+
+  .data-row {
+    @apply border border-border/70 bg-card px-3 py-2 transition-colors hover:bg-muted;
+    background-image: none;
+  }
+
+  .solid-panel {
+    @apply bg-card;
+    background-image: none;
+  }
+
+  .solid-tint-primary {
+    background-color: hsl(var(--primary) / 0.08);
+    background-image: none;
+  }
+
+  .solid-tint-warning {
+    background-color: hsl(var(--warning) / 0.16);
+    background-image: none;
+  }
+
+  .solid-tint-success {
+    background-color: hsl(var(--success) / 0.12);
+    background-image: none;
+  }
+}
