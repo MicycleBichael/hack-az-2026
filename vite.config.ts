@@ -4,13 +4,16 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '',
+  base: "/hack-az-2026/",
   server: {
     host: "::",
     port: 8080,
     hmr: {
       overlay: false,
     },
+  },
+  build:{
+    outDir: "dist",
   },
   plugins: [react()],
   resolve: {
