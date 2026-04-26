@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import {
   ArrowRight,
   BookOpen,
@@ -74,7 +74,7 @@ const tagStyles: Record<string, string> = {
 function WildcatRecallLogo() {
   return (
     <img 
-      src={`${import.meta.env.BASE_URL}nerdy-wildcat-logo-plain.svg`} 
+      src="nerdy-wildcat-logo-plain.svg" 
       alt="Wildcat Recall Logo" 
       className="h-8 w-8" // You can still control the size here
     />
@@ -584,7 +584,12 @@ function Resources() {
 }
 
 const Index = () => {
-  const { signInWithGoogle } = useAuth();
+  const { signInWithGoogle, user } = useAuth();
+  
+  if (user) {
+    return <Navigate to="/app" replace />;
+  }
+
   const featureStrip = [
     { title: "Upload notes", detail: "Turn scattered class material into reviewable topics." },
     { title: "Rank the day", detail: "See what matters first by deadline, mastery, and effort." },
