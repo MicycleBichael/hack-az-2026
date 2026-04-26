@@ -73,25 +73,11 @@ const tagStyles: Record<string, string> = {
 
 function WildcatRecallLogo() {
   return (
-    <svg viewBox="0 0 64 64" aria-hidden="true" className="h-8 w-8 overflow-visible">
-      <path
-        d="M49 18.5A22 22 0 1 0 52.8 44"
-        className="fill-none stroke-primary-foreground"
-        strokeWidth="5"
-        strokeLinecap="round"
-      />
-      <path d="M48.3 42.5 58.6 43.3 52.6 52Z" className="fill-primary-foreground" />
-      <path d="M19.5 27 23.5 12.5 31 22h2l7.5-9.5L44.5 27c4.2 3.4 6.4 7.6 6.4 12.2 0 8-7.7 13.7-18.9 13.7s-18.9-5.7-18.9-13.7c0-4.6 2.2-8.8 6.4-12.2Z" className="fill-primary-foreground" />
-      <path d="M22.6 26.2 25.3 17.5 30 23.7M41.4 26.2 38.7 17.5 34 23.7" className="fill-none stroke-destructive" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M21.5 38.5c2.8 1.9 6.2 2.9 10.5 2.9s7.7-1 10.5-2.9" className="fill-none stroke-primary" strokeWidth="3" strokeLinecap="round" />
-      <circle cx="25" cy="34" r="7" className="fill-none stroke-primary" strokeWidth="3.5" />
-      <circle cx="39" cy="34" r="7" className="fill-none stroke-primary" strokeWidth="3.5" />
-      <path d="M32 34h0" className="stroke-primary" strokeWidth="4" strokeLinecap="round" />
-      <path d="M22.8 34.8h4M37.2 34.8h4" className="stroke-primary" strokeWidth="2.4" strokeLinecap="round" />
-      <path d="M29 44.4 32 46.6l3-2.2" className="fill-none stroke-primary" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M18.2 42.5h8M37.8 42.5h8" className="stroke-primary" strokeWidth="2" strokeLinecap="round" />
-      <path d="M28 18.8h8l-4-3.2Z" className="fill-accent" />
-    </svg>
+    <img 
+      src={"public/nerdy-wildcat-logo-plain.svg"} 
+      alt="Wildcat Recall Logo" 
+      className="h-8 w-8" // You can still control the size here
+    />
   );
 }
 
