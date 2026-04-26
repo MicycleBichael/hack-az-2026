@@ -4,7 +4,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/hack-az-2026/",
+  base: "/",
   server: {
     host: "::",
     port: 8080,
