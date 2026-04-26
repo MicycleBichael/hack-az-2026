@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Index, { AiReviewPage, DemoDashboardPage, NotesPage, ResourcesPage, WeeklyPlanPage } from "./pages/Index.tsx";
 import AppShell from "./pages/AppShell.tsx";
 import NotFound from "./pages/NotFound.tsx";
@@ -7,7 +7,7 @@ import { Navigate } from "react-router-dom";
 
 const App = () => (
   <AuthProvider>
-    <HashRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/app" element={<AppShell />} />
@@ -19,7 +19,7 @@ const App = () => (
         <Route path="/demo/resources" element={<ResourcesPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   </AuthProvider>
 );
 
