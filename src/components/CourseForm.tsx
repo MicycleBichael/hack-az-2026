@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useCreateCourse, useUpdateCourse, type Course } from "@/hooks/useCourses";
 import { useToast } from "@/hooks/use-toast";
+import { getErrorMessage } from "@/lib/errors";
 
 interface CourseFormProps {
   course?: Course;
@@ -52,7 +53,7 @@ export function CourseForm({ course, onSuccess }: CourseFormProps) {
     } catch (error) {
       toast({
         variant: "destructive",
-        description: error instanceof Error ? error.message : "Failed to save course",
+        description: getErrorMessage(error, "Failed to save course"),
       });
     }
   };

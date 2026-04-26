@@ -39,9 +39,14 @@ export function useCreateCourse() {
 
   return useMutation({
     mutationFn: async (course: Omit<Course, "id" | "user_id" | "created_at" | "updated_at">) => {
+      if (!user?.id) throw new Error("You must be signed in to create a course.");
+      const { data: sessionData } = await supabase.auth.getSession();
+      if (!sessionData.session?.access_token) {
+        throw new Error("Auth session missing. Sign out, refresh, and sign in again.");
+      }
       const { data, error } = await supabase
         .from("courses")
-        .insert([{ ...course, user_id: user?.id }])
+        .insert([{ ...course, user_id: user.id }])
         .select();
 
       if (error) throw error;

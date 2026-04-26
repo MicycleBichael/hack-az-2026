@@ -14,6 +14,197 @@ export type Database = {
   }
   public: {
     Tables: {
+      assignments: {
+        Row: {
+          completed: boolean
+          completion_date: string | null
+          course_id: string
+          created_at: string
+          description: string | null
+          difficulty: number | null
+          due_date: string | null
+          estimated_hours: number | null
+          id: string
+          priority: string
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          completed?: boolean
+          completion_date?: string | null
+          course_id: string
+          created_at?: string
+          description?: string | null
+          difficulty?: number | null
+          due_date?: string | null
+          estimated_hours?: number | null
+          id?: string
+          priority?: string
+          title: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          completed?: boolean
+          completion_date?: string | null
+          course_id?: string
+          created_at?: string
+          description?: string | null
+          difficulty?: number | null
+          due_date?: string | null
+          estimated_hours?: number | null
+          id?: string
+          priority?: string
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+
+      courses: {
+        Row: {
+          code: string | null
+          color: string
+          created_at: string
+          id: string
+          instructor: string | null
+          name: string
+          semester: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          code?: string | null
+          color?: string
+          created_at?: string
+          id?: string
+          instructor?: string | null
+          name: string
+          semester?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          code?: string | null
+          color?: string
+          created_at?: string
+          id?: string
+          instructor?: string | null
+          name?: string
+          semester?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+
+      mastery_scores: {
+        Row: {
+          created_at: string
+          id: string
+          last_reviewed: string | null
+          mastery_percentage: number
+          next_review: string | null
+          review_count: number
+          topic_id: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          last_reviewed?: string | null
+          mastery_percentage?: number
+          next_review?: string | null
+          review_count?: number
+          topic_id: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          last_reviewed?: string | null
+          mastery_percentage?: number
+          next_review?: string | null
+          review_count?: number
+          topic_id?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+
+      note_attachments: {
+        Row: {
+          content_type: string | null
+          created_at: string
+          filename: string
+          id: string
+          note_id: string
+          path: string
+          size_bytes: number | null
+          user_id: string
+        }
+        Insert: {
+          content_type?: string | null
+          created_at?: string
+          filename: string
+          id?: string
+          note_id: string
+          path: string
+          size_bytes?: number | null
+          user_id: string
+        }
+        Update: {
+          content_type?: string | null
+          created_at?: string
+          filename?: string
+          id?: string
+          note_id?: string
+          path?: string
+          size_bytes?: number | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+
+      notes: {
+        Row: {
+          content: string | null
+          course_id: string
+          created_at: string
+          id: string
+          title: string
+          topic: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          content?: string | null
+          course_id: string
+          created_at?: string
+          id?: string
+          title: string
+          topic?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          content?: string | null
+          course_id?: string
+          created_at?: string
+          id?: string
+          title?: string
+          topic?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+
       profiles: {
         Row: {
           avatar_url: string | null
@@ -53,6 +244,37 @@ export type Database = {
           updated_at?: string
           user_id?: string
           year?: string | null
+        }
+        Relationships: []
+      }
+
+      topics: {
+        Row: {
+          course_id: string
+          created_at: string
+          description: string | null
+          id: string
+          name: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          course_id: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          name: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          course_id?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          name?: string
+          updated_at?: string
+          user_id?: string
         }
         Relationships: []
       }

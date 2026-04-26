@@ -43,9 +43,10 @@ export function useCreateNote() {
 
   return useMutation({
     mutationFn: async (note: Omit<Note, "id" | "user_id" | "created_at" | "updated_at">) => {
+      if (!user?.id) throw new Error("You must be signed in to create a note.");
       const { data, error } = await supabase
         .from("notes")
-        .insert([{ ...note, user_id: user?.id }])
+        .insert([{ ...note, user_id: user.id }])
         .select();
 
       if (error) throw error;

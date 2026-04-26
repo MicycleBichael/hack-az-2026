@@ -42,9 +42,10 @@ export function useCreateTopic() {
 
   return useMutation({
     mutationFn: async (topic: Omit<Topic, "id" | "user_id" | "created_at" | "updated_at">) => {
+      if (!user?.id) throw new Error("You must be signed in to create a topic.");
       const { data, error } = await supabase
         .from("topics")
-        .insert([{ ...topic, user_id: user?.id }])
+        .insert([{ ...topic, user_id: user.id }])
         .select();
 
       if (error) throw error;

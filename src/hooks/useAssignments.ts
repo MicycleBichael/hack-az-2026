@@ -48,9 +48,10 @@ export function useCreateAssignment() {
 
   return useMutation({
     mutationFn: async (assignment: Omit<Assignment, "id" | "user_id" | "created_at" | "updated_at">) => {
+      if (!user?.id) throw new Error("You must be signed in to create an assignment.");
       const { data, error } = await supabase
         .from("assignments")
-        .insert([{ ...assignment, user_id: user?.id }])
+        .insert([{ ...assignment, user_id: user.id }])
         .select();
 
       if (error) throw error;
