@@ -74,9 +74,9 @@ const tagStyles: Record<string, string> = {
 function WildcatRecallLogo() {
   return (
     <img 
-      src="nerdy-wildcat-logo-plain.svg" 
-      alt="Wildcat Recall Logo" 
-      className="h-8 w-8" // You can still control the size here
+      src="https://raw.githubusercontent.com/MicycleBichael/hack-az-2026/refs/heads/main/public/nerdy-wildcat-logo-plain.svg"
+      alt="Wildcat Recall Logo"
+      className="h-8 w-8"// You can still control the size here
     />
   );
 }
