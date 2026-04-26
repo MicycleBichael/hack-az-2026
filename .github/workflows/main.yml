@@ -42,7 +42,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Change 'dist' to 'build' or 'public' depending on your npm build output
-          path: './dist'
+          path: './public'
 
   deploy:
     environment:
