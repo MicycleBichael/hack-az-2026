@@ -74,7 +74,7 @@ const tagStyles: Record<string, string> = {
 function WildcatRecallLogo() {
   return (
     <img 
-      src={"/nerdy-wildcat-logo-plain.svg"} 
+      src={`${import.meta.env.BASE_URL}nerdy-wildcat-logo-plain.svg`} 
       alt="Wildcat Recall Logo" 
       className="h-8 w-8" // You can still control the size here
     />

@@ -76,14 +76,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         const { error } = await supabase.auth.signInWithOAuth({
           provider: "google",
           options: {
-            redirectTo: `${window.location.origin}/app`,
+            redirectTo: `${window.location.origin}${import.meta.env.BASE_URL}#/app`,
           },
         });
         if (error) throw error;
       },
       signOut: async () => {
         await supabase.auth.signOut();
-        window.location.href = "/";
+        window.location.href = `${import.meta.env.BASE_URL}`;
       },
     }),
     [loading, session, profile],
